@@ -1,0 +1,25 @@
+{
+  "name": "skipjacks",
+  "version": "1.0.0",
+  "description": "Client-Side JavaScript AI or Neural Net with CSide requests, training and output",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDonMc/skipjacks.git"
+  },
+  "keywords": [
+    "Client-Side",
+    "AI",
+    "auto-request",
+    "free-training"
+  ],
+  "author": "Jack Don McLovin <jack.mclovin@outlook.com> (https://www.jackdonmclovin.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JDonMc/skipjacks/issues"
+  },
+  "homepage": "https://github.com/JDonMc/skipjacks#readme"
+}
