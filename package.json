@@ -21,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/JDonMc/skipjacks/issues"
   },
-  "homepage": "https://github.com/JDonMc/skipjacks#readme"
+  "homepage": "https://github.com/JDonMc/skipjacks#readme",
+  "dependencies": {
+    "math": "^0.0.3",
+    "mathjs": "^11.5.0"
+  }
 }
