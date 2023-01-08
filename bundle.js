@@ -23,9 +23,7 @@ const { SubLayer } = require('./sublayers.js');
 const { Neuron } = require('./neurons.js');
 const { Connection } = require('./connections.js');
 
-define(function (require, exports, module) {
-  module.exports = { NeuralNet, Layer, SubLayer, Neuron, Connection };
-});
+module.exports = { NeuralNet, Layer, SubLayer, Neuron, Connection };
 
 },{"./connections.js":1,"./layers.js":3,"./neuralnets.js":4,"./neurons.js":5,"./sublayers.js":6}],3:[function(require,module,exports){
 const { Neuron } = require('./neurons.js');
