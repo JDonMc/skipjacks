@@ -98,4 +98,4 @@ class Layer {
   }
 }
 
-module.exports = { skipjacksNN, Layer, SubLayer };
+module.exports = { Layer };

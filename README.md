@@ -73,7 +73,12 @@ import { Connection, Neuron, SubLayer, Layer, NeuralNet } from 'skipjacks';
 <script src="https://unpkg.com/skipjacks@0.0.2/index.js"></script>
 ```
 
-### Roadmap
+
+### Initialising a NeuralNet and all it's components
+
+
+
+## Roadmap
 
 So the task at hand is to build the base neural networks with set activation functions, and easy customisability of activation functions to include the potential for novel activation functions for say the hyperbolic arc sin, or the hyperbolic (representing how Mice brains have now been measured to record spatial data, according to Nature 2023), which can be done through ready class inheritence perhaps, or even a custom method storing a given equation for the activation function and a given equation for its derivative function (as we've learnt that these are not 1:1 guaranteed implicatives, and alcalculus will need further modification for given assumptional characteristics of known datatypes), as well as configurable layer subsets each with unique activation functions, as well as transformers and multi-modal tokenizers (words, characters, subwords, which we'll then have to modify and extend to include the notion that the same word can have different definitions in different contexts, even within a single sentence).
 

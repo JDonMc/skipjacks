@@ -128,7 +128,7 @@ class Layer {
   }
 }
 
-module.exports = { skipjacksNN, Layer, SubLayer };
+module.exports = { Layer };
 
 },{"./neurons.js":5}],4:[function(require,module,exports){
 class NeuralNet {

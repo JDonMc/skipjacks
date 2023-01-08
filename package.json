@@ -1,6 +1,6 @@
 {
   "name": "skipjacks",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Client-Side JavaScript AI or Neural Net with CSide requests, training and output",
   "main": "index.js",
   "scripts": {

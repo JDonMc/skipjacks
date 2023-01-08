@@ -1,4 +1,4 @@
-const { skipjacksNN, Layer, SubLayer } = require('./index');
+const { NeuralNet, Layer, SubLayer } = require('./index');
 var asciichart = require('asciichart');
 
 const arc_activationFunction = "1/(Math.sqrt(1 + Math.exp(-x)**2))";
