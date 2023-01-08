@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/JDonMc/skipjacks#readme",
   "dependencies": {
-    
+    "uniq": "^1.0.1"
   }
 }

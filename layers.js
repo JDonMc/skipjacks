@@ -1,4 +1,4 @@
-const { Neuron } = require('./neuron.js');
+const { Neuron } = require('./neurons.js');
 
 class Layer {
   constructor(numberConnections, numberNeurons, subLayers) {
