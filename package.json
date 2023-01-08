@@ -1,10 +1,10 @@
 {
   "name": "skipjacks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Client-Side JavaScript AI or Neural Net with CSide requests, training and output",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest test.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/JDonMc/skipjacks#readme",
   "dependencies": {
-    "math": "^0.0.3",
-    "mathjs": "^11.5.0"
+    
   }
 }
