@@ -5,5 +5,5 @@ const { Neuron } = require('./neurons.js');
 const { Connection } = require('./connections.js');
 
 define(function (require, exports, module) {
-  module.exports { NeuralNet, Layer, SubLayer, Neuron, Connection };
+  module.exports = { NeuralNet, Layer, SubLayer, Neuron, Connection };
 });
