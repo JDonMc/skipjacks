@@ -2,8 +2,7 @@
 
 ## Client-Side JavaScript AI or Neural Net with CSide requests, training and output
 
-To see the old README.md follow this link: https://github.com/JDonMc/skipjacks/blob/main/README_old.md it got too wordy and explanatory, goal setting, reasoning, theory, etc.
-
+To see the [old README.md](https://github.com/JDonMc/skipjacks/blob/main/README_old.md), it is still being worked on, because it is completing a different task than a standard readme. Originally it was going to be short, but as things progressed I realised I could do a whole lot more and offer alot more insight. But as you'll be able to see, from the starting few sections, that it was originally planned to summarise this project in terms of prior-research, need-for-development, roadmap, and novel-extensions-to-theory that are needed, and a start on the mathematics underlying the most important of one of those theories.
 
 
 
@@ -70,7 +69,7 @@ import { Connection, Neuron, SubLayer, Layer, NeuralNet } from 'skipjacks';
 4. With `<script>` on the client-side, no custom installs, which is ultimately what it's built for.
 
 ```
-<script src="https://unpkg.com/skipjacks@0.0.2/index.js"></script>
+<script src="https://unpkg.com/skipjacks@0.0.8/bundle.js"></script>
 ```
 
 

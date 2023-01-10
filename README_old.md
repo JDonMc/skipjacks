@@ -71,7 +71,41 @@ The trick becomes where the slave must transfer the client model learning from t
 Potential progress can be made by using an 'inference' to, once say 100 iterations of training has been performed on a potential mobile device without an app just in the background while browsing a given web-page, by using an 'inference' to look at the starting weights of the fresh AI built on web-page load, and looking at the ending weights of once a delimiter time-frame or iteration-number has been reached (depending on the webpage content, for example if the client is watching a long video, then the threshold can be increased, or perhaps we can perform regular interval-checks of utilising what is essentially a save-point, to upload new so-far-learnings before the user leaves the page, however, lost learning is not a cost to the platform-host / server / master). And once the delimiter is reached we can compare initial weights to end weights and work out how to communicate that learning back to the host model. A lot of learning requires looping, ie one neuron on one layer will increase in the first iteration, leading to neurons in the second layer to develop, and then that same first single neuron on the first layer will then decrease in the next iteration, until learnings propogate up all levels and values solidify on marginal changes.
 
 
-### Roadmap
+## Roadmap
 
 So the task at hand is to build the base neural networks with set activation functions, and easy customisability of activation functions to include the potential for novel activation functions for say the hyperbolic arc sin, or the hyperbolic (representing how Mice brains have now been measured to record spatial data, according to Nature 2023), which can be done through ready class inheritence perhaps, or even a custom method storing a given equation for the activation function and a given equation for its derivative function (as we've learnt that these are not 1:1 guaranteed implicatives, and alcalculus will need further modification for given assumptional characteristics of known datatypes), as well as configurable layer subsets each with unique activation functions, as well as transformers and multi-modal tokenizers (words, characters, subwords, which we'll then have to modify and extend to include the notion that the same word can have different definitions in different contexts, even within a single sentence).
 
+
+### Other Theoretical Advances
+
+#### Speaker-authentication to speaker-authenticaion AI
+
+It is one thing to be able to identify what a person is saying with speech recognition, but to be able to essentially create an Adversarial AI, such that you can pass authentication as any other speaker.
+
+#### AI-to-AI AI
+
+AI primarily works with data and conversion of data from one form to another. Pattern recognition. So I posit, what if we could have an AI that could pass data from the training models/architecture of one AI to the to the training models/architecture of another AI. Essentially all it would need is the code and the models, and the datasets, it would be able to convert the model-learning based on dataset performance, to another dataset to train another AI, or to pre-train another AI, or to take in the new AI's code and models, and add the learning to it. What this final one does is converts the training from one AI into *generalising* another AI. `AGGI: Artificial General Generalizer Intelligence.`
+
+#### FaceID to FaceID AI.
+
+I don't need to explain this, but it takes in your face-verification and converts it to someone else's.
+
+#### N-D probabilistics with AI
+
+Instead of Assuming that probabilities are 1-dimensional, ie the probability that X happens is 95%, misses out on all the other information. Probabilities are measured statistics. Thus their dimensionality depends on the variation of the object(s) being measured. Thus saying "this image is 93% chance of being a tortoise" (as most AI's tend to work with), is forcing the dimensional constraint to be a single number for all possibile trained-on categories. However, it is clear to see that if you train it on a different image, then the probabilities change. 
+
+So what if we were to look at possible image-filter analysis, such as colour bleeding, blur, median filter, laplacian, gaussian, average filter, box filter, weighted-average filter, minimum filter, maximum filter, derivative filter, low-pass filter, high-pass filter, band-pass filter, butter-worth filter, resolution, sepia engraving, lens flare, warhol-type-effect, radial blur, manga rays effect, dark light effect, composite image effect, duatone effect, psychedelic watercolor, rough sketch... 
+
+it still needs to be able to recognise that image under all the possible filters. And thus instead of testing it out on each, it should give a probability of detecting it under other filters, and the probability of detecting if it has been subject to a filter. 
+
+Then it also needs to be able to give an output of the probability of when the image was taken, and where the image was taken, whether the image was taken on a tripod or a gyroscope or by-hand or other. It needs the probability that the image was cut from a video, or if the image represents a moving object, and so on and so forth.
+
+Most of these values are impossible to provide a measured-statistic for, so `probability is a meaningless term in that regard`, just as for when the comparative variables illustrate an indistinguishability between the many options, ie how are you ever going to train an AI to determine if an image was an original or from the product of copy-paste. Also, if you train an AI to recognise a banana from all the different images of a banana, then for all the correct predictions it makes, the different bananas are essentially identical to it, as in, they are indistinguishable.
+
+To correctly train an AI it would need to take in N-Dimensions of variables, where N is itself N-Dimensional ((where N is itself N-Dimesional)^N where N is itself N-Dimesional^N and so on and so forth), but we can't even make it to N-Dimensions where N is just the first cardinality of infinity, aleph-naught. This is why "complexity" "progress" "advancement" and "exponential growth as we move to the future" are complete misnomers, we still know nothing and we will always know nothing. Not only would it need to take in N-Dimesions, it would need to output N-Dimensions.
+
+#### Inconsistency / Invalidity / Self-refuting idea of AGI
+
+AGI is supposedly an artificial intelligence that is generalised across domains. It knows how to do anything at any time, and can complete any task. The idea of AGI is about an AI that can convert text-to-image, image-to-text, text-to-text, predict conversations, audio-to-video, etc etc. It can do it all. 
+
+But all possibility is at hand. Which means that for any given task, there is also it's counter task, not just the opposite task, but a counter task. A counter task is the task that challenges the progresses made in completing the referred-to task. As in an AI that is trained on doing good, will not be able to complete the task of doing evil. An AI that is trained on recognising the similarities between objects will not be able to complete the task of shunning similarities between objects. Not unless there is a choice variable and a sub-domain selector, as in you task it with what you would like it to do, and when that happens it must be able to `select it's weights` or `select it's connections` or `turn off it's own neurons`. An AGI must participate in active self-disabilitation procedures. When you train it on how to do something, you must also train it on how not to do that same something. Which cannot be done on the same network, which means it must know in advance that you are telling it to turn parts of itself off. Because normally with an AI everything flows from input to output, and judging on performance it follows a particular pattern recognition algorithm to improve its performance. But if you are using the same input-to-output ideal on the same AGI network, it will not be able to do it, unless you train it on knowing the meta-knowledge of what the task is, and how it is being judged.
