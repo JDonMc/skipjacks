@@ -1,18 +1,18 @@
 const { Neuron } = require('./neurons.js');
 
 class Layer {
-  constructor(numberConnections, numberNeurons, subLayers) {
+  constructor(numberConnections, numberNeurons, subLayers, activation_function, derivative_function) {
     this.sublayers = subLayers;
     this.numberConnections = numberConnections;
     this.numberNeurons = numberNeurons;
     this.neurons = [];
     for(var i=0; i<numberNeurons; i++) {
-      this.neurons.push(new Neuron(this.numberConnections, Math.random(), "1 / (1 + Math.exp(-x))", "this.activation_function(x) * (1 - this.activation_function(x))"));
+      this.neurons.push(new Neuron(this.numberConnections, Math.random(), activation_function, derivative_function));
     }
   }
 
-  pushConnection() {
-    this.neurons.push(new Neuron(this.numberConnections, Math.random(), "1 / (1 + Math.exp(-x))", "this.activation_function(x) * (1 - this.activation_function(x))"));
+  pushConnection(activation_function, derivative_function) {
+    this.neurons.push(new Neuron(this.numberConnections, Math.random(), activation_function, derivative_function));
     this.numberNeurons += 1;
   }
 
@@ -21,8 +21,8 @@ class Layer {
     this.numberNeurons -= 1;
   }
 
-  unshiftConnection() {
-    this.neurons.unshift(new Neuron(this.numberConnections, Math.random(), "1 / (1 + Math.exp(-x))", "this.activation_function(x) * (1 - this.activation_function(x))"));
+  unshiftConnection(activation_function, derivative_function) {
+    this.neurons.unshift(new Neuron(this.numberConnections, Math.random(), activation_function, derivative_function));
     this.numberNeurons += 1;
   }
 
