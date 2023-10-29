@@ -19,8 +19,6 @@ class SubLayer {
   forwardPropagate(inputs, sublayers_in_layer) {
     this.inputs = inputs;
     const output = [];
-    console.log("sublayers: "+sublayers_in_layer);
-    console.log("sl_weights: "+this.weights);
     if (sublayers_in_layer > 1) {
       for (let i = 0; i < this.weights.length; i++) {
         let sum = this.biases[i];

@@ -9,44 +9,42 @@ class NeuralNet {
     this.layers.push(new Layer(subset_neuronal_count, activation_function, derivative_function));
   }
 
-  // counts as 'predict(input_vector)' from old whiteflag python ai
   forwardPropagate(inputs) {
-    //console.log(inputs);
-    let output = inputs;
-    for (const layer of this.layers) {
-      console.log("output: "+ output);
-      output = layer.forwardPropagate(output);
-      console.log("output_after: "+ output); //should be 1 number.
+    var middle = inputs
+    for (var i=0; i<this.layers.length-1;i++) {
+      middle = this.layer[i].forwardPropagate(middle); //should be 1 number.
     }
-    this.output = output;
-    return output;
+    this.output = middle;
+    return this.output;
   }
 
-  backpropagate(error) {
-    for (const layer of this.layers.slice().reverse()) {
-      console.log(error);
-      error = layer.backpropagate(error);
-    }
-    return error;
-  }
-
-  calculateError(expectedOutputs) {
-    const output = this.output;
-    //console.log("output: "+output);
-    let error = 0;
-    if (Array.isArray(expectedOutputs)) {
-      for (let i = 0; i < expectedOutputs.length; i++) {
-        error += (expectedOutputs[i] - output[i]) ** 2;
+  backpropagate(inputs, expectedOutputs) {
+    this.inputs = inputs;
+    this.expectedOutputs = expectedOutputs;
+    for (var i = this.layers.length - 2; i >= 0; i--) {
+      for (var n = 0; n < this.layers[i+1].numberNeurons -1; n++) {
+        var error = []
+        for (var c = 0; c < this.layers[i+1].neurons[n].nun_connections -1; c++) {
+          if (i === this.layers.length) {
+            error.push(this.layers[i+1].neurons[n].connections[c].getWeight()*this.layers[i+1].neurons[n].costFunction(this.inputs, this.expectedOutputs)*this.layers[i].neurons[n].forwardPropagate(this.inputs));
+          } else {
+            error.push(this.layers[i+1].neurons[n].connections[c].getWeight()*this.layers[i+1].error[n]*this.layers[i].neurons[n].forwardPropagate(this.inputs));
+          }
+        }
+        this.layers[i].backpropagate(inputs, expectedOutputs, error)
       }
-      console.log("error: "+error);
-      error /= expectedOutputs.length;
-      return error;
-    } else {
-      error += (expectedOutputs - output) ** 2;
-      console.log("eO: "+expectedOutputs);
-      console.log("o: "+output);
-      return error;
-    };
+      
+    }
+
+  }
+
+  calculateError(inputs, expectedOutputs) {
+    const output = forwardPropagate(inputs);
+    this.error = [];
+    for (let i = 0; i < expectedOutputs.length; i++) {
+      this.error.push((expectedOutputs[i] - output[i]) ** 2);
+    }
+    return this.error;
   }
 };
 

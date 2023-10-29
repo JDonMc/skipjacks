@@ -8,6 +8,10 @@ class Connection {
     this.weight = weight;
   }
 
+  getWeight() {
+    return this.weight;
+  }
+
   calcConnectionExit(input) {
     return input*this.weight;
   }

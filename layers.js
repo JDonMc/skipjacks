@@ -2,10 +2,11 @@ const { Neuron } = require('./neurons.js');
 
 class Layer {
   constructor(numberConnections, numberNeurons, subLayers, activation_function, derivative_function) {
-    this.sublayers = subLayers;
+    this.sublayers = subLayers; // Not working yet
     this.numberConnections = numberConnections;
     this.numberNeurons = numberNeurons;
     this.neurons = [];
+    this.error = []
     for(var i=0; i<numberNeurons; i++) {
       this.neurons.push(new Neuron(this.numberConnections, Math.random(), activation_function, derivative_function));
     }
@@ -32,68 +33,21 @@ class Layer {
   }
 
   forwardPropagate(inputs) {
-    //console.log(inputs);
-    this.inputs = inputs;
-    var chunkSizes = this.sublayers.map(sublayer => sublayer.sublayer_neuronal_count);
-    var inputChunks = [];
-    let currentIndex = 0;
-    console.log("chunksizes: "+chunkSizes);
-    if (chunkSizes.length > 1) {
-      for (var chunkSize of chunkSizes) {
-        console.log("chunksize: "+chunkSize);
-        inputChunks.push(inputs.slice(currentIndex, currentIndex + chunkSize));
-        currentIndex += chunkSize;
-      }
-    } else {
-      inputChunks = inputs;
-    }
-    console.log("inputchunks: "+inputChunks);
-    var outputChunks = [];
-    if (this.sublayers.length > 1) {
-      for (var sublayer of this.sublayers) {
-        if (chunksSize.length > 1) {
-          var partial_output = sublayer.forwardPropagate(inputChunks.shift(), chunkSizes.length);
-        } else {
-          var partial_output = sublayer.forwardPropagate(inputChunks, chunkSizes.length);
-        }
-        
-        //console.log("partial: "+partial_output);
-        outputChunks.push(partial_output);
-        //console.log(outputChunks);
-      }
-      this.output = [].concat(...outputChunks);
-    } else {
-      //console.log("here: "+inputChunks);
-      //console.log("here: "+inputChunks.shift());
-      outputChunks = this.sublayers[0].forwardPropagate(inputChunks, chunkSizes.length);
-      this.output = outputChunks;
-      console.log("outputchunks: "+outputChunks);
-    }
-    console.log("layer_forward_output: "+this.output);
-    return this.output;
+    this.outputs = [];
+    for (var i=0; i<this.numberNeurons-1;i++) {
+      this.outputs.push(this.neurons[i].forwardPropagate(inputs));
+    };
+
+    return this.outputs;
   }
 
-  backpropagate(error) {
-    if (Array.isArray(error)) {
-      var chunkSizes = this.sublayers.map(sublayer => sublayer.sublayer_neuronal_count);
-      var errorChunks = [];
-      let currentIndex = 0;
-      for (var chunkSize of chunkSizes) {
-        errorChunks.push(error.slice(currentIndex, currentIndex + chunkSize));
-        currentIndex += chunkSize;
-      }
-      var nextErrorChunks = [];
-      for (var sublayer of this.sublayers.slice().reverse()) {
-        nextErrorChunks.push(sublayer.backpropagate(errorChunks.shift()));
-      }
-      const nextError = [].concat(...nextErrorChunks);
-      return nextError;
+  backpropagate(inputs, expectedOutputs, error) {
+    this.error = error;
+    this.inputs = inputs;
+    this.expectedOutputs;
 
-    } else {
-      for (var sublayer of this.sublayers.slice().reverse()) {
-        error = sublayer.backpropagate(error);
-      }
-      return error;
+    for (var i=0; i<this.numberNeurons-1;i++) {
+      this.error = this.neurons[i].backpropagate(this.inputs, this.expectedOutputs, this.error);
     }
   }
 }

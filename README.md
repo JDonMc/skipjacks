@@ -43,7 +43,7 @@ The class / object structure is made to be representative of the abstract form o
 1. With `require`
 
 ```
-const { Connection, Neuron, SubLayer, Layer, NeuralNet } = require('skipjacks');
+const { Connection, Neuron, Layer, NeuralNet } = require('skipjacks');
 ```
 
 
@@ -52,7 +52,7 @@ const { Connection, Neuron, SubLayer, Layer, NeuralNet } = require('skipjacks');
 2. With `import`
 
 ```
-import { Connection, Neuron, SubLayer, Layer, NeuralNet } from 'skipjacks';
+import { Connection, Neuron, Layer, NeuralNet } from 'skipjacks';
 ```
 
 
