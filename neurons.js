@@ -4,7 +4,7 @@ class Neuron {
     this.num_connections = num_inputs;
     this.connections = [];
     for (var i=0; i< num_inputs; i++) {
-      this.connections.push(new Connection(Math.random()));
+      this.connections.push(new Connection(Math.random()*(0.1)-0.05));
     }
     this.bias = bias;
     this.cost = 0;
@@ -13,10 +13,14 @@ class Neuron {
   }
 
   forwardPropogate(inputs) {
-    neuron_input_value = this.bias;
+    var neuron_input_value = this.bias;
     for(var i=0; i < this.num_connections; i++) {
       neuron_input_value += this.connections[i].calcConnectionExit(inputs[i]);
+      
+      
     }
+    //console.log(inputs);
+    console.log(this.activation(neuron_input_value));
     return this.activation(neuron_input_value);
   }
 

@@ -2,7 +2,7 @@ const { Neuron } = require('./neurons.js');
 
 class Layer {
   constructor(numberConnections, numberNeurons, activation_function, derivative_function) {
-    this.sublayers = subLayers; // Not working yet
+    //this.sublayers = subLayers; // Not working yet
     this.numberConnections = numberConnections;
     this.numberNeurons = numberNeurons;
     this.neurons = [];
@@ -35,9 +35,9 @@ class Layer {
   forwardPropagate(inputs) {
     this.outputs = [];
     for (var i=0; i<this.numberNeurons-1;i++) {
-      this.outputs.push(this.neurons[i].forwardPropagate(inputs));
+      this.outputs.push(this.neurons[i].forwardPropogate(inputs));
     };
-
+    //console.log(this.output);
     return this.outputs;
   }
 
@@ -47,7 +47,7 @@ class Layer {
     this.expectedOutputs;
 
     for (var i=0; i<this.numberNeurons-1;i++) {
-      this.error = this.neurons[i].backpropagate(this.inputs, this.expectedOutputs, this.error);
+      this.error = this.neurons[i].backPropogate(this.inputs, this.expectedOutputs, this.error);
     }
   }
 }

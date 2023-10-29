@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/JDonMc/skipjacks#readme",
   "dependencies": {
-    
+    "asciichart": "^1.5.25"
   }
 }

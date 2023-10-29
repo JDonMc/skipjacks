@@ -1,8 +1,15 @@
+function isInt(value) {
+  return !isNaN(value) && 
+         parseInt(Number(value)) == value && 
+         !isNaN(parseInt(value, 10));
+}
+
 class NeuralNet {
   constructor(layers, learning_rate, bias) {
     this.bias = bias;
     this.learning_rate = learning_rate;
     this.layers = layers;
+    this.error = [];
   }
 
   addLayer(subset_neuronal_count, activation_function, derivative_function) {
@@ -10,10 +17,15 @@ class NeuralNet {
   }
 
   forwardPropagate(inputs) {
-    var middle = inputs
+    var middle = inputs;
+    //console.log(middle);
     for (var i=0; i<this.layers.length-1;i++) {
-      middle = this.layer[i].forwardPropagate(middle); //should be 1 number.
+      middle = this.layers[i].forwardPropagate(middle); //should be 1 number.
+      //console.log(middle);
     }
+
+
+    
     this.output = middle;
     return this.output;
   }
@@ -39,11 +51,25 @@ class NeuralNet {
   }
 
   calculateError(inputs, expectedOutputs) {
-    const output = forwardPropagate(inputs);
-    this.error = [];
-    for (let i = 0; i < expectedOutputs.length; i++) {
-      this.error.push((expectedOutputs[i] - output[i]) ** 2);
+    //console.log(inputs);
+    const output = this.forwardPropagate(inputs);
+    var length = 1;
+    if (isInt(expectedOutputs)) {
+      length = 1;
+    } else {
+      length = expectedOutputs.length;
     }
+    //console.log(output);
+    this.error = [];
+    for (var i = 0; i < length; i++) {
+      if (length ===1) {
+        var expected = [expectedOutputs]
+      } else { var expected = expectedOutputs;}
+      this.error.push((expected[i] - output[i]) ** 2);
+      console.log("Error:");
+      console.log(this.error);
+    }
+    console.log(this.error);
     return this.error;
   }
 };
