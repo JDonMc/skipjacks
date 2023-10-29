@@ -1,10 +1,10 @@
 {
   "name": "skipjacks",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Client-Side JavaScript AI or Neural Net with CSide requests, training and output",
   "main": "index.js",
   "scripts": {
-    "test": "jest test.js"
+    "test": "grunt default"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   },
   "homepage": "https://github.com/JDonMc/skipjacks#readme",
   "dependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-uglify": "^5.2.2",
+    "karma": "^6.4.2"
   }
 }

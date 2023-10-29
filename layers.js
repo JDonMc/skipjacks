@@ -1,7 +1,7 @@
 const { Neuron } = require('./neurons.js');
 
 class Layer {
-  constructor(numberConnections, numberNeurons, subLayers, activation_function, derivative_function) {
+  constructor(numberConnections, numberNeurons, activation_function, derivative_function) {
     this.sublayers = subLayers; // Not working yet
     this.numberConnections = numberConnections;
     this.numberNeurons = numberNeurons;

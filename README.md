@@ -69,7 +69,7 @@ import { Connection, Neuron, Layer, NeuralNet } from 'skipjacks';
 4. With `<script>` on the client-side, no custom installs, which is ultimately what it's built for.
 
 ```
-<script src="https://unpkg.com/skipjacks@0.0.8/bundle.js"></script>
+<script src="https://unpkg.com/skipjacks@0.0.9/bundle.js"></script>
 ```
 
 
