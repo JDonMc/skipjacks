@@ -15,7 +15,7 @@ const bias = Math.random();
 //const neuralNetwork = new skipjacksNN(testlayers, learning_rate, bias);
 
 
-  var neuralNetwork = new NeuralNet([new Layer(2,2,arc_activationFunction, arc_derivativeFunction), new Layer(1,2,arc_activationFunction, arc_derivativeFunction),], 0.05, -1)
+  var neuralNetwork = new NeuralNet([new Layer(1,2,arc_activationFunction, arc_derivativeFunction), new Layer(1,2,arc_activationFunction, arc_derivativeFunction),], 0.05, -1)
 
   const inputs = [ [3, 1.5],[2, 1],[4, 1.5],[3, 4],[3.5, 0.5],[2, 0.5],[5.5, 1],[1, 1], ];
   const expectedOutputs = [0, 1, 0, 1 ,0 ,1, 1 ,0];
@@ -24,17 +24,24 @@ const bias = Math.random();
   let cumulative_errors = [];
   var error = [];
   var outputs = [];
+  var average = 0;
+  var sum = 0;
   for (let i = 0; i < 100; i++) {
 
     for (let dataset_range = 0; dataset_range < expectedOutputs.length-2; dataset_range++) {
       outputs.push(neuralNetwork.forwardPropagate(inputs[dataset_range]));
       error.push(neuralNetwork.calculateError(inputs[dataset_range], expectedOutputs[dataset_range]));
       neuralNetwork.backpropagate(inputs[dataset_range], expectedOutputs[dataset_range]);
+      sum = parseFloat(parseFloat(sum).toFixed(7) + parseFloat(error[dataset_range]).toFixed(7)).toFixed(7);
       
     }
 
   }
-  console.log(error);
+  //console.log(error);
+
+  const avg = (sum / error.length) || 0;
+  console.log(`The sum is: ${sum}. The average is: ${avg}.`);
+
   error = [];
   for (let dataset_range = expectedOutputs.length-2; dataset_range < expectedOutputs.length; dataset_range++) {
       outputs.push(neuralNetwork.forwardPropagate(inputs[dataset_range]));

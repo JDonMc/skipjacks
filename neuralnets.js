@@ -19,7 +19,7 @@ class NeuralNet {
   forwardPropagate(inputs) {
     var middle = inputs;
     //console.log(middle);
-    for (var i=0; i<this.layers.length-1;i++) {
+    for (var i=0; i<this.layers.length;i++) {
       middle = this.layers[i].forwardPropagate(middle); //should be 1 number.
       //console.log(middle);
     }
@@ -34,13 +34,13 @@ class NeuralNet {
     this.inputs = inputs;
     this.expectedOutputs = expectedOutputs;
     for (var i = this.layers.length - 2; i >= 0; i--) {
-      for (var n = 0; n < this.layers[i+1].numberNeurons -1; n++) {
+      for (var n = 0; n < this.layers[i+1].numberNeurons; n++) {
         var error = []
-        for (var c = 0; c < this.layers[i+1].neurons[n].nun_connections -1; c++) {
+        for (var c = 0; c < this.layers[i+1].neurons[n].num_connections; c++) {
           if (i === this.layers.length) {
-            error.push(this.layers[i+1].neurons[n].connections[c].getWeight()*this.layers[i+1].neurons[n].costFunction(this.inputs, this.expectedOutputs)*this.layers[i].neurons[n].forwardPropagate(this.inputs));
+            error.push(this.layers[i+1].neurons[n].connections[c].getWeight()*this.layers[i+1].neurons[n].costFunction(this.inputs, this.expectedOutputs)*this.layers[i].neurons[n].forwardPropogate(this.inputs));
           } else {
-            error.push(this.layers[i+1].neurons[n].connections[c].getWeight()*this.layers[i+1].error[n]*this.layers[i].neurons[n].forwardPropagate(this.inputs));
+            error.push(this.layers[i+1].neurons[n].connections[c].getWeight()*this.layers[i+1].error[n]*this.layers[i].neurons[n].forwardPropogate(this.inputs));
           }
         }
         this.layers[i].backpropagate(inputs, expectedOutputs, error)
@@ -56,20 +56,21 @@ class NeuralNet {
     var length = 1;
     if (isInt(expectedOutputs)) {
       length = 1;
+      var expected = [expectedOutputs]
     } else {
       length = expectedOutputs.length;
+      var expected = expectedOutputs;
     }
+    //console.log(inputs)
+    //console.log(expectedOutputs)
     //console.log(output);
     this.error = [];
     for (var i = 0; i < length; i++) {
-      if (length ===1) {
-        var expected = [expectedOutputs]
-      } else { var expected = expectedOutputs;}
       this.error.push((expected[i] - output[i]) ** 2);
-      console.log("Error:");
-      console.log(this.error);
+      //console.log("Error:");
+      //console.log(this.error);
     }
-    console.log(this.error);
+   // console.log(this.error);
     return this.error;
   }
 };

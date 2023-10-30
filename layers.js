@@ -34,20 +34,21 @@ class Layer {
 
   forwardPropagate(inputs) {
     this.outputs = [];
-    for (var i=0; i<this.numberNeurons-1;i++) {
+    for (var i=0; i<this.numberNeurons;i++) {
       this.outputs.push(this.neurons[i].forwardPropogate(inputs));
     };
-    //console.log(this.output);
+
+    //console.log(this.outputs);
     return this.outputs;
   }
 
   backpropagate(inputs, expectedOutputs, error) {
     this.error = error;
     this.inputs = inputs;
-    this.expectedOutputs;
+    this.expectedOutputs = expectedOutputs;
 
     for (var i=0; i<this.numberNeurons-1;i++) {
-      this.error = this.neurons[i].backPropogate(this.inputs, this.expectedOutputs, this.error);
+      this.neurons[i].backPropogate(this.inputs, this.expectedOutputs, this.error);
     }
   }
 }
