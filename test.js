@@ -32,7 +32,7 @@ const bias = Math.random();
       outputs.push(neuralNetwork.forwardPropagate(inputs[dataset_range]));
       error.push(neuralNetwork.calculateError(inputs[dataset_range], expectedOutputs[dataset_range]));
       neuralNetwork.backpropagate(inputs[dataset_range], expectedOutputs[dataset_range]);
-      sum = parseFloat(parseFloat(sum).toFixed(7) + parseFloat(error[dataset_range]).toFixed(7)).toFixed(7);
+      sum = parseFloat(sum + error[dataset_range]).toFixed(17);
       
     }
 
